@@ -34,21 +34,59 @@ namespace ConsoleUI
 
             // Create a list of Vehicle called vehicles
 
+            var vehicles = new List<Vehicle>();
+
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * 
              * Set the properties values with object initializer syntax
              */
 
+            var indianScout = new Motorcycle()
+            {
+                HasSideCart = false,
+                Model = "Bobber",
+                Make = "Harly",
+                Year = "2011"
+
+            };  
+                        
+            var fastCar = new Car()
+            {
+                HasTrunk = true,
+                Model = "Charger",
+                Make = "Dodge",
+                Year = "2009"
+            };
+
+            Vehicle vehicle1 = new Car() { Make = "Dodge", Model = "Ram", Year = "1994", HasTrunk = true};
+            Vehicle vehicle2 = new Motorcycle() { Year = "2023", HasSideCart = false, Make = "Indian Scout", Model = "Bobber" };
+
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate through the list and display each of the properties
              */
 
+            vehicles.Add(fastCar);
+            vehicles.Add(indianScout); 
+            vehicles.Add(vehicle2 );
+            vehicles.Add(vehicle1);
+
+            foreach ( var vehicle in vehicles )
+            {
+                Console.WriteLine($"Model:{vehicle.Model}");
+                Console.WriteLine($"Year:{vehicle.Year}");
+                Console.WriteLine($"Make:{vehicle.Make}");
+                vehicle.DriveVirtual();
+                vehicle.DriveAbstrack();
+                Console.WriteLine(); 
+            }
+
+
             // Call each of the drive methods for one car and one motorcycle
 
             #endregion            
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
